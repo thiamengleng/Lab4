@@ -16,7 +16,7 @@ def loop():
     while(True):
         if not switch.read_slide_switch():
             for i in range(0, 50, 1):
-                if not switch.read_slide_switch() or fist == False:
+                if switch.read_slide_switch() or fist == False:
                     break
                 time.sleep(0.1)
                 thing = 1 if thing == 0 else 0

@@ -10,15 +10,21 @@ def main():
     loop()
     
     
-thing = 0
 def loop():
-    global thing
+    thing = 0
+    fist = True
     while(True):
         if switch.read_slide_switch():
-            time.sleep(0.1)
-            thing = 1 if thing == 0 else 0
-            led.set_output(1, thing)
+            for i in range(0, 50, 1):
+                if not switch.read_slide_switch() or fist == False:
+                    break
+                time.sleep(0.1)
+                thing = 1 if thing == 0 else 0
+                led.set_output(1, thing)
+            fist = False
+            led.set_output(1, 0)
         else:
+            fist = True
             time.sleep(0.2)
             thing = 1 if thing == 0 else 0
             led.set_output(1, thing)

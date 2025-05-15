@@ -14,7 +14,7 @@ def loop():
     thing = 0
     fist = True
     while(True):
-        if switch.read_slide_switch():
+        if not switch.read_slide_switch():
             for i in range(0, 50, 1):
                 if not switch.read_slide_switch() or fist == False:
                     break
